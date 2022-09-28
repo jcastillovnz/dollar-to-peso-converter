@@ -74,24 +74,25 @@ const Home: NextPage = () => {
         <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <strong> Ultima actualizacion</strong>: {dayjs(lastUpdate).format('DD/MM/YYYY h:mm a')}
         </div>
-        <div style={{ marginTop: '2rem' ,flexDirection:'row'}}>
+        <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
           {' '}
           Usd:
           {' '}
-          <OutlinedInput size='small'  placeholder='dolares' value={usd} onChange={(e) => {
+          <OutlinedInput style={{ width: '8rem' }} size='small' placeholder='dolares' value={usd} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             setDolar(value)
           }} />
           {' '}
           Arg:
           {' '}
-          <OutlinedInput size='small' placeholder='pesos' value={arg} onChange={(e) => {
+          <OutlinedInput style={{ width: '8rem' }} size='small' placeholder='pesos' value={arg} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             setArg(value);
           }} />
 
         </div>
       </main >
+      <div>By @jcastillovnz</div>
     </div >
   )
 }
