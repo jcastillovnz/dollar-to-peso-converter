@@ -72,7 +72,7 @@ const Home: NextPage = () => {
           <strong>  1 ARG </strong> =  {isNaN(1 / ARGSell) || (1 / ARGSell) === Infinity ? 0 : (1 / ARGSell)} USD
         </div>
         <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
-          <strong> Ultima actualizacion</strong>: {dayjs(lastUpdate).format('DD/MM/YYYY h:mm a')}
+          <strong> Ultima actualizacion</strong>: {lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}
         </div>
         <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
           {' '}
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
         </div>
       </main >
-      <div>By @jcastillovnz</div>
+      <div ><p align="center">By @jcastillovnz</p></div>
     </div >
   )
 }
