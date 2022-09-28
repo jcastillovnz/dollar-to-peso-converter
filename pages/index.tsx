@@ -9,9 +9,9 @@ import dayjs from 'dayjs';
 
 const Home: NextPage = () => {
 
-  const [ARGBuy, setARGBuy] = useState(0);
+  const [argPriceBuy, setArgPriceBuy] = useState(0);
 
-  const [ARGSell, setARGSell] = useState(0);
+  const [argPriceSell, setArgPriceSell] = useState(0);
 
   const [usd, setDolar] = useState(0);
 
@@ -21,27 +21,27 @@ const Home: NextPage = () => {
 
   useEffect(
     () => {
-      const usdToArg = isNaN(1 / ARGSell) || (1 / ARGSell) === Infinity ? 0 : (1 / ARGSell);
+      const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
       const argToUsd = usdToArg * arg;
       setDolar(argToUsd)
     },
-    [ARGSell, arg],
+    [argPriceSell, arg],
   );
 
   useEffect(
     () => {
-      const oneUsdToArg = isNaN(ARGSell / 1) || (ARGSell / 1) === Infinity ? 0 : (ARGSell / 1);
+      const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
       const usdValue = usd * oneUsdToArg;
-      setArg(usdValue)
+      setArg(Math.ceil(usdValue))
     },
-    [ARGSell, usd],
+    [argPriceSell, usd],
   );
 
   (async () => {
     try {
       const data = await getCurrenciesValues();
-      setARGBuy(data.blue.value_buy);
-      setARGSell(data.blue.value_sell);
+      setArgPriceBuy(data.blue.value_buy);
+      setArgPriceSell(data.blue.value_sell);
       setLastUpdate(data.last_update)
     }
     catch (error) {
@@ -66,10 +66,10 @@ const Home: NextPage = () => {
           Conversor dolar a peso
         </h1>
         <div className={styles.grid} style={{ fontSize: '0.9rem', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center' }}>
-          <strong style={{ color: 'green' }}> COMPRA ARG {ARGBuy} = 1 USD {' '}</strong>  <strong style={{ color: 'red' }}>{' '} VENTA ARG {ARGSell} = 1 USD</strong>
+          <strong style={{ color: 'green' }}> COMPRA ARG {argPriceBuy} = 1 USD {' '}</strong>  <strong style={{ color: 'red' }}>{' '} VENTA ARG {argPriceSell} = 1 USD</strong>
         </div>
         <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
-          <strong>  1 ARG </strong> =  {isNaN(1 / ARGSell) || (1 / ARGSell) === Infinity ? 0 : (1 / ARGSell)} USD
+          <strong>  1 ARG </strong> =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
         </div>
         <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <strong> Ultima actualizacion</strong>: {lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}
