@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
         </div>
       </main >
-      <div ><Typography align="center" >By @jcastillovnz</Typography></div>
+      <div ><Typography align="center" >By <strong>@jcastillovnz</strong></Typography></div>
     </div >
   )
 }
