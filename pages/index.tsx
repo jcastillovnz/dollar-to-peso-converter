@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
+import dayjs from 'dayjs';
 
 const Home: NextPage = () => {
 
@@ -13,6 +14,8 @@ const Home: NextPage = () => {
   const [usd, setDolar] = useState(0);
 
   const [arg, setArg] = useState(0);
+
+  const [lastUpdate, setLastUpdate] = useState();
 
   useEffect(
     () => {
@@ -37,6 +40,7 @@ const Home: NextPage = () => {
       const data = await getCurrenciesValues();
       setARGBuy(data.blue.value_buy);
       setARGSell(data.blue.value_sell);
+      setLastUpdate(data.last_update)
     }
     catch (error) {
       console.log(error)
@@ -62,6 +66,9 @@ const Home: NextPage = () => {
         </div>
         <div style={{ marginTop: '1rem' }}>
           1 ARG =  {isNaN(1 / ARGSell) || (1 / ARGSell) === Infinity ? 0 : (1 / ARGSell)} USD
+        </div>
+        <div style={{ marginTop: '1rem' }}>
+          Ultima actualizacion: {dayjs(lastUpdate).format('DD/MM/YYYY h:mm a')}
         </div>
         <div style={{ marginTop: '2rem' }}>
           {' '}
