@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
+
+import { OutlinedInput } from '@mui/material';
 import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
 import dayjs from 'dayjs';
@@ -72,18 +74,18 @@ const Home: NextPage = () => {
         <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
           <strong> Ultima actualizacion</strong>: {dayjs(lastUpdate).format('DD/MM/YYYY h:mm a')}
         </div>
-        <div style={{ marginTop: '2rem' }}>
+        <div style={{ marginTop: '2rem' ,flexDirection:'row'}}>
           {' '}
           Usd:
           {' '}
-          <input placeholder='dolares' value={usd} onChange={(e) => {
+          <OutlinedInput size='small'  placeholder='dolares' value={usd} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             setDolar(value)
           }} />
           {' '}
           Arg:
           {' '}
-          <input placeholder='pesos' value={arg} onChange={(e) => {
+          <OutlinedInput size='small' placeholder='pesos' value={arg} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             setArg(value);
           }} />
