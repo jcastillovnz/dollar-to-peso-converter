@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
-
+import { Typography } from '@mui/material';
 import { OutlinedInput } from '@mui/material';
 import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
         </div>
       </main >
-      <div ><p align="center">By @jcastillovnz</p></div>
+      <div ><Typography align="center" >By @jcastillovnz</Typography></div>
     </div >
   )
 }
