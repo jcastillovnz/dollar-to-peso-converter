@@ -76,14 +76,14 @@ const Home: NextPage = () => {
         </div>
         <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
           {' '}
-          Usd:
+          <strong>Usd:</strong>
           {' '}
           <OutlinedInput style={{ width: '8rem' }} size='small' placeholder='dolares' value={usd} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             setDolar(value)
           }} />
           {' '}
-          Arg:
+          <strong>Arg:</strong>
           {' '}
           <OutlinedInput style={{ width: '8rem' }} size='small' placeholder='pesos' value={arg} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
