@@ -12,6 +12,17 @@ export default function handler(
   res.status(200).json({ name: 'John Doe' })
 }
 
-export const getCurrenciesValues = async()=>{   
-  return await await fetch('https://api.bluelytics.com.ar/v2/latest');
+export const getCurrenciesValues = async () => {
+  let res;
+  res = await fetch('https://api.bluelytics.com.ar/v2/latest');
+
+  const data = await res.json();
+  if (!res.ok) {
+    const { message } = data;
+    console.error('request error: ', data);
+    throw message;
+  }
+  return data;
 }
+
+
