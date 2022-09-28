@@ -54,7 +54,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Conversor dolar a peso</title>
         <meta name="google-site-verification" content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c" />
-        <meta name="description" content="Conversor dolar a peso, convertir dolar a pesos, precio de dolar argentina" />
+        <meta name="description" content="Conversor dolar a peso, convertir dolar a pesos, precio de dolar argentina, conversor dolar a peso argentino" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
