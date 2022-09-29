@@ -13,9 +13,9 @@ const Home: NextPage = () => {
 
   const [argPriceSell, setArgPriceSell] = useState(0);
 
-  const [usd, setDolar] = useState(0);
+  const [usd, setDolar] = useState(0.0);
 
-  const [arg, setArg] = useState(0);
+  const [arg, setArg] = useState(0.0);
 
   const [lastUpdate, setLastUpdate] = useState();
 
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     () => {
       const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
       const argToUsd = usdToArg * arg;
-      setDolar(argToUsd)
+     setDolar(argToUsd)
     },
     [argPriceSell, arg],
   );
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
     () => {
       const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
       const usdValue = usd * oneUsdToArg;
-      setArg(Math.ceil(usdValue))
+      setArg(usdValue)
     },
     [argPriceSell, usd],
   );
@@ -78,8 +78,9 @@ const Home: NextPage = () => {
           {' '}
           <strong>Usd:</strong>
           {' '}
-          <OutlinedInput style={{ width: '8.5rem' }} size='small' placeholder='dolares' value={usd} onChange={(e) => {
+          <OutlinedInput style={{ width: '8.5rem' }} size='small' placeholder='dolares' onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
+            console.log("----------> ", value)
             setDolar(value)
           }} />
           {' '}
