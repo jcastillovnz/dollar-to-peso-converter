@@ -6,9 +6,7 @@ import { OutlinedInput } from '@mui/material';
 import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
 import dayjs from 'dayjs';
-import { AnyARecord } from 'dns';
-import Analytics from 'analytics'
-import googleTagManager from '@analytics/google-tag-manager'
+
 
 const Home: NextPage = () => {
 
@@ -51,17 +49,7 @@ const Home: NextPage = () => {
     }
 
   })();
-  const analytics = Analytics({
-    app: 'Conversor',
-    plugins: [
-      googleTagManager({
-        containerId: 'G-LWTZSX72JH'
-      })
-    ]
-  })
-  
-  /* Track a page view */
-  analytics.page()
+
 
   return (
     <div className={styles.container}>
