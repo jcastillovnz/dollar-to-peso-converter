@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { InputHTMLAttributes, Ref, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Typography } from '@mui/material';
 import { OutlinedInput } from '@mui/material';
 import styles from '../styles/Home.module.css'
