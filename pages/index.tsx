@@ -7,6 +7,8 @@ import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
 import dayjs from 'dayjs';
 import { AnyARecord } from 'dns';
+import Analytics from 'analytics'
+import googleTagManager from '@analytics/google-tag-manager'
 
 const Home: NextPage = () => {
 
@@ -49,12 +51,23 @@ const Home: NextPage = () => {
     }
 
   })();
-
+  const analytics = Analytics({
+    app: 'Conversor',
+    plugins: [
+      googleTagManager({
+        containerId: 'G-LWTZSX72JH'
+      })
+    ]
+  })
+  
+  /* Track a page view */
+  analytics.page()
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Conversor dolar a peso</title>
+
         <meta name="google-site-verification" content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <meta name="description" content="Conversor dolar a peso, convertir dolar a pesos, precio de dolar argentina, conversor dolar a peso argentino, dólar a peso argentino blue" />
