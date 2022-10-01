@@ -14,10 +14,6 @@ const Home: NextPage = () => {
 
   const [argPriceSell, setArgPriceSell] = useState(0);
 
-  /*   const [usd, setUsd] = useState(0.0);
-  
-    const [arg, setArg] = useState(0.0); */
-
   const [lastUpdate, setLastUpdate] = useState();
 
   const usdInput = useRef<HTMLInputElement>(null);
@@ -26,7 +22,7 @@ const Home: NextPage = () => {
   const convertArgToUsd = (args: number) => {
     const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
     const argToUsd = usdToArg * args;
-    if (usdInput?.current?.value) {
+    if (usdInput?.current) {
       usdInput.current.value = argToUsd.toString()
     }
 
@@ -35,7 +31,7 @@ const Home: NextPage = () => {
   const convertUsdToArg = (usd: number) => {
     const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
     const usdValue = usd * oneUsdToArg;
-    if (argInput?.current?.value) {
+    if (argInput?.current) {
       argInput.current.value = usdValue.toString()
     }
   }
