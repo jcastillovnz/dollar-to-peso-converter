@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react';
+import { InputHTMLAttributes, Ref, useEffect, useRef, useState } from 'react';
 import { Typography } from '@mui/material';
 import { OutlinedInput } from '@mui/material';
 import styles from '../styles/Home.module.css'
 import { getCurrenciesValues } from './api';
 import dayjs from 'dayjs';
+import { AnyARecord } from 'dns';
 
 const Home: NextPage = () => {
 
@@ -13,29 +14,32 @@ const Home: NextPage = () => {
 
   const [argPriceSell, setArgPriceSell] = useState(0);
 
-  const [usd, setDolar] = useState(0.0);
-
-  const [arg, setArg] = useState(0.0);
+  /*   const [usd, setUsd] = useState(0.0);
+  
+    const [arg, setArg] = useState(0.0); */
 
   const [lastUpdate, setLastUpdate] = useState();
 
-  useEffect(
-    () => {
-      const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
-      const argToUsd = usdToArg * arg;
-     setDolar(argToUsd)
-    },
-    [argPriceSell, arg],
-  );
+  const usdInput = useRef<HTMLInputElement>(null);
+  const argInput = useRef<HTMLInputElement>(null);
 
-  useEffect(
-    () => {
-      const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
-      const usdValue = usd * oneUsdToArg;
-      setArg(usdValue)
-    },
-    [argPriceSell, usd],
-  );
+  const convertArgToUsd = (args: number) => {
+    const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
+    const argToUsd = usdToArg * args;
+    if (usdInput?.current?.value) {
+      usdInput.current.value = argToUsd.toString()
+    }
+
+  }
+
+  const convertUsdToArg = (usd: number) => {
+    const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
+    const usdValue = usd * oneUsdToArg;
+    if (argInput?.current?.value) {
+      argInput.current.value = usdValue.toString()
+    }
+  }
+
 
   (async () => {
     try {
@@ -78,18 +82,19 @@ const Home: NextPage = () => {
           {' '}
           <strong>Usd:</strong>
           {' '}
-          <OutlinedInput style={{ width: '8.5rem' }} size='small' placeholder='dolares' onChange={(e) => {
-            const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
-            console.log("----------> ", value)
-            setDolar(value)
+          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='dolares' inputRef={usdInput} onChange={(e) => {
+            const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
+            convertUsdToArg(value);
           }} />
-          {' '}
+
           <strong>Arg:</strong>
           {' '}
-          <OutlinedInput style={{ width: '8.5rem' }} size='small' placeholder='pesos' value={arg} onChange={(e) => {
+          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='pesos' inputRef={argInput} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
-            setArg(value);
+            convertArgToUsd(value)
           }} />
+
+          {' '}
 
         </div>
       </main >
