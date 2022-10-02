@@ -63,7 +63,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div style={{ marginTop: '-4rem' }}>
+        <div style={{ marginTop: '7rem' }}>
           <h1 style={{ fontSize: '1.2rem' }}>
             Conversor dolar a peso argentino
           </h1>
@@ -80,44 +80,63 @@ const Home: NextPage = () => {
             </Typography>
           </div>
 
+
+
           <div style={{ marginTop: '1rem' }}>
             <Typography align="center" variant='body1' style={{ fontSize: '0.8rem' }}>
               <strong>1 dólar</strong> estadounidense equivale a {argPriceSell} pesos argentinos
             </Typography>
           </div>
+
           <div >
             <Typography style={{ fontSize: '0.8rem' }} align="center" variant='body1'>
               <strong>  1 peso argentino</strong> equivale a  =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
             </Typography>
           </div>
 
-        </div>
 
-        <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
-          {' '}
-          <OutlinedInput style={{ width: '7.8rem' }} size='small' label="Outlined" placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
-            const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
-            convertUsdToArg(value);
-          }} />
-          {' '}
-          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
-            const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
-            convertArgToUsd(value)
-          }} />
-          {' '}
+          <div style={{
+            flex: 1,
+            marginTop: '2rem',
+            marginBottom: '2rem',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignContent: 'center',
+            justifySelf: 'center',
+            textAlign: 'center'
+          }}>
+            {' '}
+            <OutlinedInput style={{ width: '7.8rem' }} size='small' label="Outlined" placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
+              const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
+              convertUsdToArg(value);
+            }} />
+            {' '}
+            <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
+              const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
+              convertArgToUsd(value)
+            }} />
+            {' '}
+          </div>
 
+          <div>
+            <Typography style={{ fontSize: '0.9rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
+            <Typography style={{ marginTop: '2rem', marginBottom: '1.5rem' }} align="center">
+              <strong>Ultima actualizacion</strong>
+            </Typography>
+            <Typography align="center" >
+              {lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}
+            </Typography>
+          </div>
+
+          <div style={{marginTop:'2rem'}}>
+            <Typography style={{ fontSize: '0.8rem' }} align="center" >
+            By <strong>@jcastillovnz</strong>
+            </Typography></div>
         </div>
 
       </main >
-      <div style={{
-        marginTop: '-9rem',
-        marginBottom: '5rem'
-      }}>
-        <Typography style={{ fontSize: '0.9rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
-        <Typography style={{ marginTop: '2rem' }} align="center"><strong>Ultima actualizacion</strong></Typography>
-        <Typography align="center" >{lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}</Typography>
-      </div>
-      <div ><Typography style={{ fontSize: '0.8rem' }} align="center" >By <strong>@jcastillovnz</strong></Typography></div>
+
+
     </div >
   )
 }
