@@ -54,7 +54,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Conversor dolar a peso</title>
+        <title>Conversor dolar a pesos argentinos</title>
 
         <meta name="google-site-verification" content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -63,18 +63,34 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 style={{ fontSize: '1.5rem' }}>
-          Conversor dolar a peso
+        <h1 style={{ fontSize: '1.2rem' }}>
+          Conversor dolar a peso argentino
         </h1>
-        <div className={styles.grid} style={{ fontSize: '0.9rem', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center' }}>
-          <strong style={{ color: 'green' }}> COMPRA ARG {argPriceBuy} = 1 USD {' '}</strong>  <strong style={{ color: 'red' }}>{' '} VENTA ARG {argPriceSell} = 1 USD</strong>
+        <div style={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+
+
+          <div style={{ marginTop: '1rem' }}>
+            <Typography align="center">
+              <strong style={{ color: 'green' }}> COMPRA  1 USD =  {argPriceBuy} ARG{' '}</strong>
+            </Typography>
+            <Typography align="center">
+              <strong style={{ color: 'red' }}>{' '} VENTA 1 USD = {argPriceSell} ARG </strong>
+            </Typography>
+          </div>
+
+          <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
+            <Typography align="center">
+              <strong>1 dólar</strong> estadounidense equivale a {argPriceSell} pesos argentinos
+            </Typography>
+          </div>
+
+          <Typography align="center">
+            <strong>  1 peso argentino</strong> equivale a  =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
+          </Typography>
+
+
         </div>
-        <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
-          <strong>  1 ARG </strong> =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
-        </div>
-        <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
-          <strong> Ultima actualizacion</strong>: {lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}
-        </div>
+
         <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
           {' '}
           <strong>Usd:</strong>
@@ -90,11 +106,17 @@ const Home: NextPage = () => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             convertArgToUsd(value)
           }} />
-
           {' '}
 
         </div>
       </main >
+      <div style={{
+        fontSize: '0.9rem',
+        marginBottom: '3rem'
+      }}>
+        <Typography align="center">Ultima actualizacion</Typography>
+        <Typography align="center" >{lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}</Typography>
+      </div>
       <div ><Typography align="center" >By <strong>@jcastillovnz</strong></Typography></div>
     </div >
   )
