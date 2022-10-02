@@ -83,14 +83,15 @@ const Home: NextPage = () => {
 
 
           <div style={{ marginTop: '1rem' }}>
-            <Typography align="center" variant='body1' style={{ fontSize: '0.8rem' }}>
+            <Typography align="center" variant='body1' style={{ fontSize: '0.7rem' }}>
               <strong>1 dólar</strong> estadounidense equivale a {argPriceSell} pesos argentinos
             </Typography>
           </div>
 
           <div >
-            <Typography style={{ fontSize: '0.8rem' }} align="center" variant='body1'>
-              <strong>  1 peso argentino</strong> equivale a  =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
+            <Typography style={{ fontSize: '0.7rem' }} align="center" variant='body1'>
+              <strong>  1 peso argentino</strong> equivale a {isNaN(1 / argPriceSell)
+                || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} dolares
             </Typography>
           </div>
 
@@ -128,9 +129,9 @@ const Home: NextPage = () => {
             </Typography>
           </div>
 
-          <div style={{marginTop:'2rem'}}>
+          <div style={{ marginTop: '2rem' }}>
             <Typography style={{ fontSize: '0.8rem' }} align="center" >
-            By <strong>@jcastillovnz</strong>
+              By <strong>@jcastillovnz</strong>
             </Typography></div>
         </div>
 
