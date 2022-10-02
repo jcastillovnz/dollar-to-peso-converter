@@ -112,10 +112,10 @@ const Home: NextPage = () => {
         
       </main >
       <div style={{
-        fontSize: '0.9rem',
-        marginBottom: '3rem'
+        marginTop: '-4rem',
+        marginBottom:'5rem'
       }}>
-        <Typography align="center">Ultima actualizacion</Typography>
+        <Typography  align="center"><strong>Ultima actualizacion</strong></Typography>
         <Typography align="center" >{lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}</Typography>
       </div>
       <div ><Typography align="center" >By <strong>@jcastillovnz</strong></Typography></div>
