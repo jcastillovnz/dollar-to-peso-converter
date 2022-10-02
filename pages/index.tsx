@@ -78,16 +78,16 @@ const Home: NextPage = () => {
             </Typography>
           </div>
 
-          <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
-            <Typography align="center">
+          <div style={{ marginTop: '1rem' }}>
+            <Typography align="center" variant='body1' style={{ fontSize: '0.8rem' }}>
               <strong>1 dólar</strong> estadounidense equivale a {argPriceSell} pesos argentinos
             </Typography>
           </div>
-
-          <Typography align="center">
+          <div >
+          <Typography style={{ fontSize: '0.8rem' }} align="center" variant='body1'>
             <strong>  1 peso argentino</strong> equivale a  =  {isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} USD
           </Typography>
-
+          </div>
 
         </div>
 
@@ -109,6 +109,7 @@ const Home: NextPage = () => {
           {' '}
 
         </div>
+        
       </main >
       <div style={{
         fontSize: '0.9rem',
