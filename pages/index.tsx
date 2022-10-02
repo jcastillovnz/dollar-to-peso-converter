@@ -63,10 +63,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div style={{marginTop:'-4rem'}}>
-        <h1 style={{ fontSize: '1.2rem' }}>
-          Conversor dolar a peso argentino
-        </h1>
+        <div style={{ marginTop: '-4rem' }}>
+          <h1 style={{ fontSize: '1.2rem' }}>
+            Conversor dolar a peso argentino
+          </h1>
         </div>
         <div style={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
 
@@ -118,10 +118,10 @@ const Home: NextPage = () => {
         marginBottom: '5rem'
       }}>
         <Typography style={{ fontSize: '0.9rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
-        <Typography align="center"><strong>Ultima actualizacion</strong></Typography>
+        <Typography style={{ marginTop: '2rem' }} align="center"><strong>Ultima actualizacion</strong></Typography>
         <Typography align="center" >{lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}</Typography>
       </div>
-      <div ><Typography style={{ fontSize: '0.8rem' }}  align="center" >By <strong>@jcastillovnz</strong></Typography></div>
+      <div ><Typography style={{ fontSize: '0.8rem' }} align="center" >By <strong>@jcastillovnz</strong></Typography></div>
     </div >
   )
 }
