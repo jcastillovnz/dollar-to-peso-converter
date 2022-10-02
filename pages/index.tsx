@@ -120,7 +120,7 @@ const Home: NextPage = () => {
           </div>
 
           <div>
-            <Typography style={{ fontSize: '0.9rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
+            <Typography style={{ fontSize: '0.7rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
             <Typography style={{ marginTop: '2rem', marginBottom: '1.5rem' }} align="center">
               <strong>Ultima actualizacion</strong>
             </Typography>
