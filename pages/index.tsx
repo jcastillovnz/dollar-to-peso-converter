@@ -95,16 +95,12 @@ const Home: NextPage = () => {
 
         <div style={{ marginTop: '2rem', flexDirection: 'row' }}>
           {' '}
-          <strong>Usd:</strong>
-          {' '}
-          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='dolares' inputRef={usdInput} onChange={(e) => {
+          <OutlinedInput style={{ width: '7.8rem' }} size='small' label="Outlined" placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
             convertUsdToArg(value);
           }} />
-
-          <strong>Arg:</strong>
           {' '}
-          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='pesos' inputRef={argInput} onChange={(e) => {
+          <OutlinedInput style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
             const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
             convertArgToUsd(value)
           }} />
