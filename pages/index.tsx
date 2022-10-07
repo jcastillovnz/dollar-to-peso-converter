@@ -107,12 +107,12 @@ const Home: NextPage = () => {
             textAlign: 'center'
           }}>
             {' '}
-            <OutlinedInput type="number" style={{ width: '7.8rem' }} size='small' placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
+            <OutlinedInput type="number"  inputProps={{ min: 0, max: 10000000}} style={{ width: '7.8rem' }} size='small' placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
               const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
               convertUsdToArg(value);
             }} />
             {' '}
-            <OutlinedInput type="number" style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
+            <OutlinedInput type="number" inputProps={{ min: 0, max: 10000000}} style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
               const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
               convertArgToUsd(value)
             }} />
