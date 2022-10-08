@@ -23,7 +23,10 @@ const Home: NextPage = () => {
     const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
     const argToUsd = usdToArg * args;
     if (usdInput?.current) {
-      usdInput.current.value = argToUsd.toString()
+      usdInput.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 4 });
+      console.log("------------> ", argToUsd)
+      console.log("--------------> ", argToUsd.toLocaleString('es', { maximumFractionDigits: 2 }))
+      console.log("--------> ", usdInput.current.value)
     }
 
   }
@@ -32,7 +35,7 @@ const Home: NextPage = () => {
     const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
     const usdValue = usd * oneUsdToArg;
     if (argInput?.current) {
-      argInput.current.value = usdValue.toString()
+      argInput.current.value = usdValue.toLocaleString('es', { maximumFractionDigits: 2 })
     }
   }
 
@@ -107,12 +110,12 @@ const Home: NextPage = () => {
             textAlign: 'center'
           }}>
             {' '}
-            <OutlinedInput type="number"  inputProps={{ min: 0, max: 10000000}} style={{ width: '7.8rem' }} size='small' placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
+            <OutlinedInput type="text" inputProps={{ step:0.01, max: 10000000 }} style={{ width: '7.8rem' }} size='small' placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
               const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
               convertUsdToArg(value);
             }} />
             {' '}
-            <OutlinedInput type="number" inputProps={{ min: 0, max: 10000000}} style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
+            <OutlinedInput type="text" inputProps={{ step:0.01, max: 10000000 }} style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
               const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
               convertArgToUsd(value)
             }} />
