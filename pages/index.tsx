@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
     const argToUsd = usdToArg * args;
     if (usdInput?.current) {
-      usdInput.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 4 });
+      usdInput.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 2 });
     }
 
   }
