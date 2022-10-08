@@ -24,9 +24,6 @@ const Home: NextPage = () => {
     const argToUsd = usdToArg * args;
     if (usdInput?.current) {
       usdInput.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 4 });
-      console.log("------------> ", argToUsd)
-      console.log("--------------> ", argToUsd.toLocaleString('es', { maximumFractionDigits: 2 }))
-      console.log("--------> ", usdInput.current.value)
     }
 
   }
