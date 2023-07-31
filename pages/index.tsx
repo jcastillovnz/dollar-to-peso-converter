@@ -117,23 +117,23 @@ const Home: NextPage = () => {
                 <TableHead>
                   <TableRow>
                     <TableCell>
-                      <strong  style={{ fontSize: "0.8rem" }}>1 DOLAR BLUE</strong>
+                      <strong  style={{ fontSize: "0.7rem" }}>1 DOLAR BLUE</strong>
                     </TableCell>
-                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
                       COMPRA {argBluePriceBuy} ARG
                     </TableCell>
-                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
                       VENTA {argBluePriceSell} ARG
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <strong style={{ fontSize: "0.8rem" }}>1 DOLAR OFICIAL</strong>
+                      <strong style={{ fontSize: "0.7rem" }}>1 DOLAR OFICIAL</strong>
                     </TableCell>
-                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
                       COMPRA {argOficialPriceBuy} ARG
                     </TableCell>
-                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
                       VENTA {argOficialPriceSell} ARG
                     </TableCell>
                   </TableRow>
