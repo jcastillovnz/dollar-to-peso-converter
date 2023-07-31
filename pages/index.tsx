@@ -101,8 +101,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div style={{ marginTop: "6rem" }}>
-          <h1 style={{ fontSize: "1.1rem" }}>CAMBIO DOLAR A PESO ARGENTINO 🇦🇷</h1>
+        <div style={{ marginTop: "3.5rem" }}>
+          <h1 style={{ fontSize: "1.1rem" }}>
+            CAMBIO DOLAR A PESO ARGENTINO 🇦🇷
+          </h1>
         </div>
         <div
           style={{
@@ -117,24 +119,37 @@ const Home: NextPage = () => {
                 <TableHead>
                   <TableRow>
                     <TableCell>
-                      <strong  style={{ fontSize: "0.7rem" }}>1 DOLAR BLUE</strong>
+                      <strong style={{ fontSize: "0.7rem" }}>TIPO CAMBIO</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      COMPRA {argBluePriceBuy} ARG
+                      <strong>COMPRA</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      VENTA {argBluePriceSell} ARG
+                      <strong>VENTA</strong>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <strong style={{ fontSize: "0.7rem" }}>1 DOLAR OFICIAL</strong>
+                      <strong style={{ fontSize: "0.7rem" }}>DOLAR BLUE</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      COMPRA {argOficialPriceBuy} ARG
+                      {argBluePriceBuy} ARG
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      VENTA {argOficialPriceSell} ARG
+                      {argBluePriceSell} ARG
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <strong style={{ fontSize: "0.7rem" }}>
+                        DOLAR OFICIAL
+                      </strong>
+                    </TableCell>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
+                      {argOficialPriceBuy} ARG
+                    </TableCell>
+                    <TableCell align="right" style={{ fontSize: "0.7rem" }}>
+                      {argOficialPriceSell} ARG
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -231,7 +246,7 @@ const Home: NextPage = () => {
 
           <div>
             <Typography
-              style={{ marginTop: "2.5rem", marginBottom: "1rem" }}
+              style={{ marginTop: "3.3rem", marginBottom: "1rem" }}
               align="center"
             >
               <strong> ⏰ Ultima actualizacion</strong>
