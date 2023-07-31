@@ -119,13 +119,15 @@ const Home: NextPage = () => {
                 <TableHead>
                   <TableRow>
                     <TableCell>
-                      <strong style={{ fontSize: "0.7rem" }}>TIPO CAMBIO</strong>
+                      <strong style={{ fontSize: "0.7rem" }}>
+                        TIPO CAMBIO
+                      </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong>COMPRA</strong>
+                      <strong style={{ color:"green" }}>COMPRA</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong>VENTA</strong>
+                      <strong style={{ color:"red" }}>VENTA</strong>
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -133,10 +135,10 @@ const Home: NextPage = () => {
                       <strong style={{ fontSize: "0.7rem" }}>DOLAR BLUE</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      {argBluePriceBuy} ARS
+                      <strong style={{ color:"green" }}> {argBluePriceBuy} ARS</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      {argBluePriceSell} ARS
+                      <strong style={{ color:"red" }}> {argBluePriceSell} ARS</strong>
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -146,10 +148,10 @@ const Home: NextPage = () => {
                       </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      {argOficialPriceBuy} ARS
+                      <strong style={{ color:"green" }}>{argOficialPriceBuy} ARS</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      {argOficialPriceSell} ARS
+                      <strong style={{ color:"red" }}> {argOficialPriceSell} ARS</strong>
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -244,19 +246,16 @@ const Home: NextPage = () => {
             />{" "}
           </div>
 
-          <div>
-            <Typography
-              style={{ marginTop: "3.3rem", marginBottom: "1rem" }}
-              align="center"
-            >
-              <strong> ⏰ Ultima actualizacion</strong>
-            </Typography>
-            <Typography align="center">
-              {lastUpdate ? dayjs(lastUpdate).format("DD/MM/YYYY h:mm a") : ""}
+          <div style={{ marginTop: "4.3rem", marginBottom: "1rem" }}>
+            <Typography align="center" style={{ fontSize: "0.8rem" }}>
+              <strong> 🕔 Ultima actualizacion </strong>
+              {lastUpdate
+                ? dayjs(lastUpdate).format("DD/MM/YYYY h:mm a")
+                : ""}{" "}
             </Typography>
           </div>
 
-          <div style={{ marginTop: "2rem" }}>
+          <div style={{ marginTop: "4rem" }}>
             <Typography style={{ fontSize: "0.8rem" }} align="center">
               By <strong>@jcastillovnz</strong>
             </Typography>
