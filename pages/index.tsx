@@ -102,7 +102,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div style={{ marginTop: "6rem" }}>
-          <h1 style={{ fontSize: "1.2rem" }}>CAMBIO DOLAR A PESO ARGENTINO 🇦🇷</h1>
+          <h1 style={{ fontSize: "1.1rem" }}>CAMBIO DOLAR A PESO ARGENTINO 🇦🇷</h1>
         </div>
         <div
           style={{
@@ -117,23 +117,23 @@ const Home: NextPage = () => {
                 <TableHead>
                   <TableRow>
                     <TableCell>
-                      <strong>1 DOLAR BLUE</strong>
+                      <strong  style={{ fontSize: "0.8rem" }}>1 DOLAR BLUE</strong>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
                       COMPRA {argBluePriceBuy} ARG
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
                       VENTA {argBluePriceSell} ARG
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <strong>1 DOLAR OFICIAL</strong>
+                      <strong style={{ fontSize: "0.8rem" }}>1 DOLAR OFICIAL</strong>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
                       COMPRA {argOficialPriceBuy} ARG
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="right" style={{ fontSize: "0.8rem" }}>
                       VENTA {argOficialPriceSell} ARG
                     </TableCell>
                   </TableRow>
