@@ -101,9 +101,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div style={{ marginTop: "7rem" }}>
+        <div style={{ marginTop: "6rem" }}>
           <h1 style={{ fontSize: "1.2rem" }}>
-            Conversor dolar a peso argentino
+         CAMBIO DOLAR A PESO ARGENTINO
           </h1>
         </div>
         <div
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
               <Table sx={{ minWidth: 300 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>DOLAR BLUE</TableCell>
+                    <TableCell><strong>DOLAR BLUE</strong></TableCell>
                     <TableCell align="right">
                       COMPRA {argBluePriceBuy} ARG
                     </TableCell>
@@ -127,7 +127,7 @@ const Home: NextPage = () => {
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>DOLAR OFICIAL</TableCell>
+                    <TableCell><strong>DOLAR OFICIAL</strong></TableCell>
                     <TableCell align="right">
                       COMPRA {argOficialPriceBuy} ARG
                     </TableCell>
@@ -229,7 +229,7 @@ const Home: NextPage = () => {
 
           <div>
             <Typography
-              style={{ marginTop: "2rem", marginBottom: "1.5rem" }}
+              style={{ marginTop: "3rem", marginBottom: "1.5rem" }}
               align="center"
             >
               <strong>Ultima actualizacion</strong>
