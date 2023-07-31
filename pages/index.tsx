@@ -173,7 +173,7 @@ const Home: NextPage = () => {
             <OutlinedInput
               type="text"
               inputProps={{ step: 0.01, max: 10000000 }}
-              style={{ width: "8rem" }}
+              style={{ width: "10rem" }}
               size="small"
               placeholder="Dolar Blue"
               inputRef={usdBlueInput}
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
             <OutlinedInput
               type="text"
               inputProps={{ step: 0.01, max: 10000000 }}
-              style={{ width: "8rem" }}
+              style={{ width: "10rem" }}
               size="small"
               placeholder="Pesos"
               inputRef={argBlueInput}
@@ -217,7 +217,7 @@ const Home: NextPage = () => {
             <OutlinedInput
               type="text"
               inputProps={{ step: 0.01, max: 10000000 }}
-              style={{ width: "8rem" }}
+              style={{ width: "10rem" }}
               size="small"
               placeholder="Dolar oficial"
               inputRef={usdOficialInput}
@@ -231,7 +231,7 @@ const Home: NextPage = () => {
             <OutlinedInput
               type="text"
               inputProps={{ step: 0.01, max: 10000000 }}
-              style={{ width: "8rem" }}
+              style={{ width: "10rem" }}
               size="small"
               placeholder="Pesos"
               inputRef={argOficialInput}
