@@ -1,7 +1,16 @@
 import type { NextPage } from "next";
 import { RefObject, useRef, useState } from "react";
 import Head from "next/head";
-import { Typography } from "@mui/material";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import { OutlinedInput } from "@mui/material";
 import styles from "../styles/Home.module.css";
 import { getCurrenciesValues } from "./api";
@@ -25,7 +34,7 @@ const Home: NextPage = () => {
   const convertArgToUsd = (
     args: number,
     usdArgPriceSell: number,
-    input:RefObject<HTMLInputElement>
+    input: RefObject<HTMLInputElement>
   ) => {
     const usdToArg =
       isNaN(1 / usdArgPriceSell) || 1 / usdArgPriceSell === Infinity
@@ -33,23 +42,27 @@ const Home: NextPage = () => {
         : 1 / usdArgPriceSell;
     const argToUsd = usdToArg * args;
     if (input?.current) {
-      input.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 2 });
-    }}
+      input.current.value = argToUsd.toLocaleString("es", {
+        maximumFractionDigits: 2,
+      });
+    }
+  };
 
   const convertUsdToArg = (
     usd: number,
     argPriceSell: number,
-    input:RefObject<HTMLInputElement>
+    input: RefObject<HTMLInputElement>
   ) => {
     const oneUsdToArg =
-      isNaN( argPriceSell / 1) ||  argPriceSell / 1 === Infinity
+      isNaN(argPriceSell / 1) || argPriceSell / 1 === Infinity
         ? 0
-        :  argPriceSell / 1;
+        : argPriceSell / 1;
     const usdValue = usd * oneUsdToArg;
     if (input?.current) {
-      input.current.value = usdValue.toLocaleString('es', { maximumFractionDigits: 2 });
+      input.current.value = usdValue.toLocaleString("es", {
+        maximumFractionDigits: 2,
+      });
     }
-
   };
 
   (async () => {
@@ -96,48 +109,28 @@ const Home: NextPage = () => {
         <div
           style={{
             justifyContent: "center",
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
           }}
         >
-          <div style={{ marginTop: "1rem" }}>
-            <Typography align="center">
-              <strong style={{ color: "green" }}>
-                {" "}
-                COMPRA 1 USD = {argBluePriceBuy} ARG{" "}
-              </strong>
-            </Typography>
-            <Typography align="center">
-              <strong style={{ color: "red" }}>
-                {" "}
-                VENTA 1 USD = {argBluePriceSell} ARG{" "}
-              </strong>
-            </Typography>
-          </div>
+          <div style={{ marginTop: "0rem" }}>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>DOLAR OFICIAL</TableCell>
+                    <TableCell align="right">Compra {argOficialPriceBuy}</TableCell>
+                    <TableCell align="right">Venta {argOficialPriceSell}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>DOLAR BLUE</TableCell>
+                    <TableCell align="right">Compra {argBluePriceBuy}</TableCell>
+                    <TableCell align="right">Venta {argBluePriceSell}</TableCell>
+                  </TableRow>
+                </TableHead>
 
-          <div style={{ marginTop: "1rem" }}>
-            <Typography
-              align="center"
-              variant="body1"
-              style={{ fontSize: "0.7rem" }}
-            >
-              <strong>1 dólar</strong> estadounidense equivale a{" "}
-              {argBluePriceSell} pesos argentinos
-            </Typography>
-          </div>
-
-          <div>
-            <Typography
-              style={{ fontSize: "0.7rem" }}
-              align="center"
-              variant="body1"
-            >
-              <strong> 1 peso argentino</strong> equivale a{" "}
-              {isNaN(1 / argBluePriceSell) || 1 / argBluePriceSell === Infinity
-                ? 0
-                : 1 / argBluePriceSell}{" "}
-              dolares
-            </Typography>
+              </Table>
+            </TableContainer>
           </div>
 
           <div
@@ -178,7 +171,7 @@ const Home: NextPage = () => {
                 const value = isNaN(parseFloat(e.target.value))
                   ? 0
                   : parseFloat(e.target.value);
-     
+
                 convertArgToUsd(value, argBluePriceSell, usdBlueInput);
               }}
             />{" "}
@@ -208,8 +201,7 @@ const Home: NextPage = () => {
                 const value = isNaN(parseFloat(e.target.value))
                   ? 0
                   : parseFloat(e.target.value);
-                  console.log("argOficialPriceSell:: ", argOficialPriceSell)
-                  convertUsdToArg(value, argOficialPriceSell, argOficialInput);
+                convertUsdToArg(value, argOficialPriceSell, argOficialInput);
               }}
             />{" "}
             <OutlinedInput
@@ -223,15 +215,12 @@ const Home: NextPage = () => {
                 const value = isNaN(parseFloat(e.target.value))
                   ? 0
                   : parseFloat(e.target.value);
-                  convertArgToUsd(value, argOficialPriceSell, usdOficialInput);
+                convertArgToUsd(value, argOficialPriceSell, usdOficialInput);
               }}
             />{" "}
           </div>
 
           <div>
-            <Typography style={{ fontSize: "0.7rem" }} align="center">
-              Los precios mostrados son a precio de mercado
-            </Typography>
             <Typography
               style={{ marginTop: "2rem", marginBottom: "1.5rem" }}
               align="center"
@@ -254,4 +243,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home ;
+export default Home;
