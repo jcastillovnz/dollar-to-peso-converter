@@ -1,145 +1,257 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { useRef, useState } from 'react';
-import { Typography } from '@mui/material';
-import { OutlinedInput } from '@mui/material';
-import styles from '../styles/Home.module.css'
-import { getCurrenciesValues } from './api';
-import dayjs from 'dayjs';
-
+import type { NextPage } from "next";
+import { RefObject, useRef, useState } from "react";
+import Head from "next/head";
+import { Typography } from "@mui/material";
+import { OutlinedInput } from "@mui/material";
+import styles from "../styles/Home.module.css";
+import { getCurrenciesValues } from "./api";
+import dayjs from "dayjs";
 
 const Home: NextPage = () => {
+  const [argBluePriceBuy, setargBluePriceBuy] = useState(0);
+  const [argBluePriceSell, setargBluePriceSell] = useState(0);
 
-  const [argPriceBuy, setArgPriceBuy] = useState(0);
-
-  const [argPriceSell, setArgPriceSell] = useState(0);
+  const [argOficialPriceBuy, setargOficialPriceBuy] = useState(0);
+  const [argOficialPriceSell, setargOficialPriceSell] = useState(0);
 
   const [lastUpdate, setLastUpdate] = useState();
 
-  const usdInput = useRef<HTMLInputElement>(null);
-  const argInput = useRef<HTMLInputElement>(null);
+  const usdBlueInput = useRef<HTMLInputElement>(null);
+  const argBlueInput = useRef<HTMLInputElement>(null);
 
-  const convertArgToUsd = (args: number) => {
-    const usdToArg = isNaN(1 / argPriceSell) || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell);
+  const usdOficialInput = useRef<HTMLInputElement>(null);
+  const argOficialInput = useRef<HTMLInputElement>(null);
+
+  const convertArgToUsd = (
+    args: number,
+    usdArgPriceSell: number,
+    input:RefObject<HTMLInputElement>
+  ) => {
+    const usdToArg =
+      isNaN(1 / usdArgPriceSell) || 1 / usdArgPriceSell === Infinity
+        ? 0
+        : 1 / usdArgPriceSell;
     const argToUsd = usdToArg * args;
-    if (usdInput?.current) {
-      usdInput.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 2 });
-    }
+    if (input?.current) {
+      input.current.value = argToUsd.toLocaleString('es', { maximumFractionDigits: 2 });
+    }}
 
-  }
-
-  const convertUsdToArg = (usd: number) => {
-    const oneUsdToArg = isNaN(argPriceSell / 1) || (argPriceSell / 1) === Infinity ? 0 : (argPriceSell / 1);
+  const convertUsdToArg = (
+    usd: number,
+    argPriceSell: number,
+    input:RefObject<HTMLInputElement>
+  ) => {
+    const oneUsdToArg =
+      isNaN( argPriceSell / 1) ||  argPriceSell / 1 === Infinity
+        ? 0
+        :  argPriceSell / 1;
     const usdValue = usd * oneUsdToArg;
-    if (argInput?.current) {
-      argInput.current.value = usdValue.toLocaleString('es', { maximumFractionDigits: 2 })
+    if (input?.current) {
+      input.current.value = usdValue.toLocaleString('es', { maximumFractionDigits: 2 });
     }
-  }
 
+  };
 
   (async () => {
     try {
       const data = await getCurrenciesValues();
-      setArgPriceBuy(data.blue.value_buy);
-      setArgPriceSell(data.blue.value_sell);
-      setLastUpdate(data.last_update)
+      /* BLUE */
+      setargBluePriceBuy(data.blue.value_buy);
+      setargBluePriceSell(data.blue.value_sell);
+      /* OFICIAL */
+      setargOficialPriceBuy(data.oficial.value_buy);
+      setargOficialPriceSell(data.oficial.value_sell);
+      setLastUpdate(data.last_update);
+    } catch (error) {
+      console.log(error);
     }
-    catch (error) {
-      console.log(error)
-    }
-
   })();
-
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Conversor dolar a pesos argentinos</title>
 
-        <meta name="google-site-verification" content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        <meta name="description" content="Conversor dolar a peso, convertir dolar a pesos, precio de dolar argentina, conversor dolar a peso argentino, dólar a peso argentino blue" />
+        <meta
+          name="google-site-verification"
+          content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <meta
+          name="description"
+          content="Conversor dolar a peso, convertir dolar a pesos, precio de dolar argentina, conversor dolar a peso argentino, dólar a peso argentino blue"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <div style={{ marginTop: '7rem' }}>
-          <h1 style={{ fontSize: '1.2rem' }}>
+        <div style={{ marginTop: "7rem" }}>
+          <h1 style={{ fontSize: "1.2rem" }}>
             Conversor dolar a peso argentino
           </h1>
         </div>
-        <div style={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-
-
-          <div style={{ marginTop: '1rem' }}>
+        <div
+          style={{
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ marginTop: "1rem" }}>
             <Typography align="center">
-              <strong style={{ color: 'green' }}> COMPRA  1 USD =  {argPriceBuy} ARG{' '}</strong>
+              <strong style={{ color: "green" }}>
+                {" "}
+                COMPRA 1 USD = {argBluePriceBuy} ARG{" "}
+              </strong>
             </Typography>
             <Typography align="center">
-              <strong style={{ color: 'red' }}>{' '} VENTA 1 USD = {argPriceSell} ARG </strong>
+              <strong style={{ color: "red" }}>
+                {" "}
+                VENTA 1 USD = {argBluePriceSell} ARG{" "}
+              </strong>
             </Typography>
           </div>
 
-
-
-          <div style={{ marginTop: '1rem' }}>
-            <Typography align="center" variant='body1' style={{ fontSize: '0.7rem' }}>
-              <strong>1 dólar</strong> estadounidense equivale a {argPriceSell} pesos argentinos
+          <div style={{ marginTop: "1rem" }}>
+            <Typography
+              align="center"
+              variant="body1"
+              style={{ fontSize: "0.7rem" }}
+            >
+              <strong>1 dólar</strong> estadounidense equivale a{" "}
+              {argBluePriceSell} pesos argentinos
             </Typography>
-          </div>
-
-          <div >
-            <Typography style={{ fontSize: '0.7rem' }} align="center" variant='body1'>
-              <strong>  1 peso argentino</strong> equivale a {isNaN(1 / argPriceSell)
-                || (1 / argPriceSell) === Infinity ? 0 : (1 / argPriceSell)} dolares
-            </Typography>
-          </div>
-
-
-          <div style={{
-            flex: 1,
-            marginTop: '2rem',
-            marginBottom: '2rem',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignContent: 'center',
-            justifySelf: 'center',
-            textAlign: 'center'
-          }}>
-            {' '}
-            <OutlinedInput type="text" inputProps={{ step:0.01, max: 10000000 }} style={{ width: '7.8rem' }} size='small' placeholder='Dolares' inputRef={usdInput} onChange={(e) => {
-              const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value);
-              convertUsdToArg(value);
-            }} />
-            {' '}
-            <OutlinedInput type="text" inputProps={{ step:0.01, max: 10000000 }} style={{ width: '7.8rem' }} size='small' placeholder='Pesos' inputRef={argInput} onChange={(e) => {
-              const value = isNaN(parseFloat(e.target.value)) ? 0 : parseFloat(e.target.value)
-              convertArgToUsd(value)
-            }} />
-            {' '}
           </div>
 
           <div>
-            <Typography style={{ fontSize: '0.7rem' }} align="center">Los precios mostrados son a precio de mercado</Typography>
-            <Typography style={{ marginTop: '2rem', marginBottom: '1.5rem' }} align="center">
-              <strong>Ultima actualizacion</strong>
-            </Typography>
-            <Typography align="center" >
-              {lastUpdate ? dayjs(lastUpdate).format('DD/MM/YYYY h:mm a') : ''}
+            <Typography
+              style={{ fontSize: "0.7rem" }}
+              align="center"
+              variant="body1"
+            >
+              <strong> 1 peso argentino</strong> equivale a{" "}
+              {isNaN(1 / argBluePriceSell) || 1 / argBluePriceSell === Infinity
+                ? 0
+                : 1 / argBluePriceSell}{" "}
+              dolares
             </Typography>
           </div>
 
-          <div style={{ marginTop: '2rem' }}>
-            <Typography style={{ fontSize: '0.8rem' }} align="center" >
+          <div
+            style={{
+              flex: 1,
+              marginTop: "2rem",
+              marginBottom: "2rem",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              justifySelf: "center",
+              textAlign: "center",
+            }}
+          >
+            {" "}
+            <OutlinedInput
+              type="text"
+              inputProps={{ step: 0.01, max: 10000000 }}
+              style={{ width: "8rem" }}
+              size="small"
+              placeholder="Dolar Blue"
+              inputRef={usdBlueInput}
+              onChange={(e) => {
+                const value = isNaN(parseFloat(e.target.value))
+                  ? 0
+                  : parseFloat(e.target.value);
+                convertUsdToArg(value, argBluePriceSell, argBlueInput);
+              }}
+            />{" "}
+            <OutlinedInput
+              type="text"
+              inputProps={{ step: 0.01, max: 10000000 }}
+              style={{ width: "8rem" }}
+              size="small"
+              placeholder="Pesos"
+              inputRef={argBlueInput}
+              onChange={(e) => {
+                const value = isNaN(parseFloat(e.target.value))
+                  ? 0
+                  : parseFloat(e.target.value);
+     
+                convertArgToUsd(value, argBluePriceSell, usdBlueInput);
+              }}
+            />{" "}
+          </div>
+
+          <div
+            style={{
+              flex: 1,
+              marginTop: "2rem",
+              marginBottom: "2rem",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              justifySelf: "center",
+              textAlign: "center",
+            }}
+          >
+            {" "}
+            <OutlinedInput
+              type="text"
+              inputProps={{ step: 0.01, max: 10000000 }}
+              style={{ width: "8rem" }}
+              size="small"
+              placeholder="Dolar oficial"
+              inputRef={usdOficialInput}
+              onChange={(e) => {
+                const value = isNaN(parseFloat(e.target.value))
+                  ? 0
+                  : parseFloat(e.target.value);
+                  console.log("argOficialPriceSell:: ", argOficialPriceSell)
+                  convertUsdToArg(value, argOficialPriceSell, argOficialInput);
+              }}
+            />{" "}
+            <OutlinedInput
+              type="text"
+              inputProps={{ step: 0.01, max: 10000000 }}
+              style={{ width: "8rem" }}
+              size="small"
+              placeholder="Pesos"
+              inputRef={argOficialInput}
+              onChange={(e) => {
+                const value = isNaN(parseFloat(e.target.value))
+                  ? 0
+                  : parseFloat(e.target.value);
+                  convertArgToUsd(value, argOficialPriceSell, usdOficialInput);
+              }}
+            />{" "}
+          </div>
+
+          <div>
+            <Typography style={{ fontSize: "0.7rem" }} align="center">
+              Los precios mostrados son a precio de mercado
+            </Typography>
+            <Typography
+              style={{ marginTop: "2rem", marginBottom: "1.5rem" }}
+              align="center"
+            >
+              <strong>Ultima actualizacion</strong>
+            </Typography>
+            <Typography align="center">
+              {lastUpdate ? dayjs(lastUpdate).format("DD/MM/YYYY h:mm a") : ""}
+            </Typography>
+          </div>
+
+          <div style={{ marginTop: "2rem" }}>
+            <Typography style={{ fontSize: "0.8rem" }} align="center">
               By <strong>@jcastillovnz</strong>
-            </Typography></div>
+            </Typography>
+          </div>
         </div>
+      </main>
+    </div>
+  );
+};
 
-      </main >
-
-
-    </div >
-  )
-}
-
-export default Home
+export default Home ;
