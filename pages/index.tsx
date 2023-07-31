@@ -118,17 +118,24 @@ const Home: NextPage = () => {
               <Table sx={{ minWidth: 300 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>DOLAR OFICIAL</TableCell>
-                    <TableCell align="right">Compra {argOficialPriceBuy}</TableCell>
-                    <TableCell align="right">Venta {argOficialPriceSell}</TableCell>
+                    <TableCell>DOLAR BLUE</TableCell>
+                    <TableCell align="right">
+                      COMPRA {argBluePriceBuy} ARG
+                    </TableCell>
+                    <TableCell align="right">
+                      VENTA {argBluePriceSell} ARG
+                    </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>DOLAR BLUE</TableCell>
-                    <TableCell align="right">Compra {argBluePriceBuy}</TableCell>
-                    <TableCell align="right">Venta {argBluePriceSell}</TableCell>
+                    <TableCell>DOLAR OFICIAL</TableCell>
+                    <TableCell align="right">
+                      COMPRA {argOficialPriceBuy} ARG
+                    </TableCell>
+                    <TableCell align="right">
+                      VENTA {argOficialPriceSell} ARG
+                    </TableCell>
                   </TableRow>
                 </TableHead>
-
               </Table>
             </TableContainer>
           </div>
