@@ -102,9 +102,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div style={{ marginTop: "6rem" }}>
-          <h1 style={{ fontSize: "1.2rem" }}>
-         CAMBIO DOLAR A PESO ARGENTINO
-          </h1>
+          <h1 style={{ fontSize: "1.2rem" }}>CAMBIO DOLAR A PESO ARGENTINO 🇦🇷</h1>
         </div>
         <div
           style={{
@@ -118,7 +116,9 @@ const Home: NextPage = () => {
               <Table sx={{ minWidth: 300 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell><strong>DOLAR BLUE</strong></TableCell>
+                    <TableCell>
+                      <strong>1 DOLAR BLUE</strong>
+                    </TableCell>
                     <TableCell align="right">
                       COMPRA {argBluePriceBuy} ARG
                     </TableCell>
@@ -127,7 +127,9 @@ const Home: NextPage = () => {
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell><strong>DOLAR OFICIAL</strong></TableCell>
+                    <TableCell>
+                      <strong>1 DOLAR OFICIAL</strong>
+                    </TableCell>
                     <TableCell align="right">
                       COMPRA {argOficialPriceBuy} ARG
                     </TableCell>
@@ -229,10 +231,10 @@ const Home: NextPage = () => {
 
           <div>
             <Typography
-              style={{ marginTop: "3rem", marginBottom: "1.5rem" }}
+              style={{ marginTop: "2.5rem", marginBottom: "1rem" }}
               align="center"
             >
-              <strong>Ultima actualizacion</strong>
+              <strong> ⏰ Ultima actualizacion</strong>
             </Typography>
             <Typography align="center">
               {lastUpdate ? dayjs(lastUpdate).format("DD/MM/YYYY h:mm a") : ""}
