@@ -100,7 +100,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.main} style={{borderColor:"red"}}>
         <div style={{ marginTop: "2.1rem" }}>
           <h1 style={{ fontSize: "1.1rem" }}>
             CAMBIO DOLAR A PESO ARGENTINO 🇦🇷
@@ -114,10 +114,10 @@ const Home: NextPage = () => {
           }}
         >
           <div style={{ marginTop: "0rem" }}>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 300, overflow: 'hidden'}} aria-label="simple table">
+            <TableContainer component={Paper} elevation={0} >
+              <Table sx={{ minWidth: 300 }} aria-label="simple table" >
                 <TableHead>
-                  <TableRow>
+                  <TableRow >
                     <TableCell>
                       <strong style={{ fontSize: "0.7rem" }}>
                         TIPO CAMBIO
