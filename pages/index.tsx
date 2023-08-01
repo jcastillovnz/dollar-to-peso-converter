@@ -84,7 +84,11 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Conversor dolar a pesos argentinos</title>
-
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269630446749743"
+          crossOrigin="anonymous"
+        ></script>
         <meta
           name="google-site-verification"
           content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c"
@@ -100,7 +104,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main} style={{borderColor:"red"}}>
+      <main className={styles.main} style={{ borderColor: "red" }}>
         <div style={{ marginTop: "2.1rem" }}>
           <h1 style={{ fontSize: "1.1rem" }}>
             CAMBIO DOLAR A PESO ARGENTINO 🇦🇷
@@ -114,20 +118,20 @@ const Home: NextPage = () => {
           }}
         >
           <div style={{ marginTop: "0rem" }}>
-            <TableContainer component={Paper} elevation={0} >
-              <Table sx={{ minWidth: 300 }} aria-label="simple table" >
+            <TableContainer component={Paper} elevation={0}>
+              <Table sx={{ minWidth: 300 }} aria-label="simple table">
                 <TableHead>
-                  <TableRow >
+                  <TableRow>
                     <TableCell>
                       <strong style={{ fontSize: "0.7rem" }}>
                         TIPO CAMBIO
                       </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"green" }}>COMPRA</strong>
+                      <strong style={{ color: "green" }}>COMPRA</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"red" }}>VENTA</strong>
+                      <strong style={{ color: "red" }}>VENTA</strong>
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -135,10 +139,16 @@ const Home: NextPage = () => {
                       <strong style={{ fontSize: "0.7rem" }}>DOLAR BLUE</strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"green" }}> {argBluePriceBuy} ARS</strong>
+                      <strong style={{ color: "green" }}>
+                        {" "}
+                        {argBluePriceBuy} ARS
+                      </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"red" }}> {argBluePriceSell} ARS</strong>
+                      <strong style={{ color: "red" }}>
+                        {" "}
+                        {argBluePriceSell} ARS
+                      </strong>
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -148,10 +158,15 @@ const Home: NextPage = () => {
                       </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"green" }}>{argOficialPriceBuy} ARS</strong>
+                      <strong style={{ color: "green" }}>
+                        {argOficialPriceBuy} ARS
+                      </strong>
                     </TableCell>
                     <TableCell align="right" style={{ fontSize: "0.7rem" }}>
-                      <strong style={{ color:"red" }}> {argOficialPriceSell} ARS</strong>
+                      <strong style={{ color: "red" }}>
+                        {" "}
+                        {argOficialPriceSell} ARS
+                      </strong>
                     </TableCell>
                   </TableRow>
                 </TableHead>
