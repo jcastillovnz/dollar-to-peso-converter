@@ -101,7 +101,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <div style={{ marginTop: "2.2rem" }}>
+        <div style={{ marginTop: "2.1rem" }}>
           <h1 style={{ fontSize: "1.1rem" }}>
             CAMBIO DOLAR A PESO ARGENTINO 🇦🇷
           </h1>
@@ -115,7 +115,7 @@ const Home: NextPage = () => {
         >
           <div style={{ marginTop: "0rem" }}>
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 300 }} aria-label="simple table">
+              <Table sx={{ minWidth: 300, overflow: 'hidden'}} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell>
