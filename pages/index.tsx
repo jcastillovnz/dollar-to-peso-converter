@@ -15,6 +15,8 @@ import { OutlinedInput } from "@mui/material";
 import styles from "../styles/Home.module.css";
 import { getCurrenciesValues } from "./api";
 import dayjs from "dayjs";
+import Analytics from 'analytics'
+import ReactGA from "react-ga4";
 
 const Home: NextPage = () => {
   const [argBluePriceBuy, setargBluePriceBuy] = useState(0);
@@ -67,6 +69,7 @@ const Home: NextPage = () => {
 
   (async () => {
     try {
+      ReactGA.initialize("G-LWTZSX72JH");
       const data = await getCurrenciesValues();
       /* BLUE */
       setargBluePriceBuy(data.blue.value_buy);
