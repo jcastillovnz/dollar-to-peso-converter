@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Script from "next/script";
 import { RefObject, useRef, useState } from "react";
 import Head from "next/head";
 import {
@@ -15,7 +16,7 @@ import { OutlinedInput } from "@mui/material";
 import styles from "../styles/Home.module.css";
 import { getCurrenciesValues } from "./api";
 import dayjs from "dayjs";
-import Analytics from 'analytics'
+import Analytics from "analytics";
 import ReactGA from "react-ga4";
 
 const Home: NextPage = () => {
@@ -85,13 +86,14 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269630446749743"
+        crossOrigin="anonymous"
+      />
       <Head>
         <title>Conversor dolar a pesos argentinos</title>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269630446749743"
-          crossOrigin="anonymous"
-        ></script>
+
         <meta
           name="google-site-verification"
           content="jLy-jCzipmoaCT6-hXgJARacqDIXXhb_clgvi86fN1c"
