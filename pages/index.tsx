@@ -5,7 +5,6 @@ import Head from "next/head";
 import {
   Paper,
   Table,
-  TableBody,
   TableCell,
   TableContainer,
   TableHead,
