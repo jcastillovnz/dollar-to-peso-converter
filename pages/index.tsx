@@ -15,7 +15,6 @@ import { OutlinedInput } from "@mui/material";
 import styles from "../styles/Home.module.css";
 import { getCurrenciesValues } from "./api";
 import dayjs from "dayjs";
-import Analytics from "analytics";
 import ReactGA from "react-ga4";
 
 const Home: NextPage = () => {
