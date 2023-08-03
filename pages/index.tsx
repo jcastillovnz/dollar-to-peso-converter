@@ -70,7 +70,6 @@ const Home: NextPage = () => {
     try {
       ReactGA.initialize("G-LWTZSX72JH");
       const data = await getCurrenciesValues();
-      console.log("data: ", data);
       /* BLUE */
       setargBluePriceBuy(data.blue.value_buy);
       setargBluePriceSell(data.blue.value_sell);
