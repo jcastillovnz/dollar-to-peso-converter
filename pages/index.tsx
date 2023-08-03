@@ -280,7 +280,7 @@ const Home: NextPage = () => {
             <Typography align="center" style={{ fontSize: "0.8rem" }}>
               <strong>  Ultima actualizacion </strong> correspondiente de los
               precios del <strong>dolar blue</strong> y{" "}
-              <strong>dolar oficial </strong>  <strong>Argentina</strong>{" "} el {" "}
+              <strong>dolar oficial </strong>  <strong>Argentina</strong>{" "} {" "}
               {lastUpdate ? dayjs(lastUpdate).format("dddd, D [de] MMMM [de] YYYY, H:MM") : ""}{" "}
             </Typography>
           </div>
