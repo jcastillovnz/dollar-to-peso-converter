@@ -106,7 +106,7 @@ const Home: NextPage = () => {
         ></meta>
         <meta
           name="description"
-          content="conversor dolar a peso argentino, calculadora dolar peso argentino, precio de dolar argentina, conversor dolar a peso argentino, dólar a peso argentino blue"
+          content="conversor dolar a peso argentino, conversor dolar blue, cambio dolar a pesos argentinos, conversor dolar a peso argentino, dólar a peso argentino blue"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
