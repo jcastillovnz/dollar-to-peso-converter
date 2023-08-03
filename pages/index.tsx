@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import Script from "next/script";
 import { RefObject, useEffect, useRef, useState } from "react";
 import Head from "next/head";
+import es from "dayjs/locale/es";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.locale(es);
 import {
   Paper,
   Table,
@@ -87,9 +90,11 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-
       <Head>
-        <title>Conversor de Dólar a Peso Argentino | Cotización Dólar Blue y Dólar Oficial</title>
+        <title>
+          Conversor de Dólar a Peso Argentino | Cotización Dólar Blue y Dólar
+          Oficial
+        </title>
 
         <meta
           name="google-site-verification"
@@ -101,7 +106,9 @@ const Home: NextPage = () => {
         ></meta>
         <meta
           name="description"
-          content={`Convierte dólares a pesos argentinos al tipo de cambio actual de Dólar Blue y Dólar Oficial. Cotización actualizada al ${dayjs().format("DD/MM/YYYY")}`}
+          content={`Convierte dólares a pesos argentinos al tipo de cambio actual de Dólar Blue y Dólar Oficial. Cotización actualizada al ${dayjs().format(
+            "DD/MM/YYYY"
+          )}`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -263,12 +270,18 @@ const Home: NextPage = () => {
             />{" "}
           </div>
 
-          <div style={{ marginTop: "4.3rem", marginBottom: "1rem" }}>
+          <div
+            style={{
+              marginTop: "4.3rem",
+              marginBottom: "1rem",
+              width: "18rem",
+            }}
+          >
             <Typography align="center" style={{ fontSize: "0.8rem" }}>
-              <strong> 🕔 Ultima actualizacion </strong>
-              {lastUpdate
-                ? dayjs(lastUpdate).format("DD/MM/YYYY h:mm a")
-                : ""}{" "}
+              <strong> 🕔 Ultima actualizacion </strong> correspondiente de los
+              precios del <strong>dolar blue</strong> y{" "}
+              <strong>dolar oficial </strong>  <strong>Argentina</strong>{" "} el {" "}
+              {lastUpdate ? dayjs(lastUpdate).format("dddd, D [de] MMMM [de] YYYY, H:MM") : ""}{" "}
             </Typography>
           </div>
 
