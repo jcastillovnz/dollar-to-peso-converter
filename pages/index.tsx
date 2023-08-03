@@ -108,7 +108,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main} style={{ borderColor: "red" }}>
         <div style={{ marginTop: "2.1rem" }}>
-          <h1 style={{ fontSize: "1.1rem" }}>
+          <h1 style={{ fontSize: "0.9rem" }}>
             CONVERSOR DOLAR A PESO ARGENTINO 🇦🇷
           </h1>
         </div>
