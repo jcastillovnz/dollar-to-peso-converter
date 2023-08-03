@@ -89,7 +89,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
 
       <Head>
-        <title>Conversor dolar a pesos argentinos</title>
+        <title>Conversor de Dólar a Peso Argentino | Cotización Dólar Blue y Dólar Oficial</title>
 
         <meta
           name="google-site-verification"
@@ -101,7 +101,7 @@ const Home: NextPage = () => {
         ></meta>
         <meta
           name="description"
-          content="conversor dolar a peso argentino, conversor dolar blue, cambio dolar a pesos argentinos, conversor dolar a peso argentino, conversion dolar peso argentino"
+          content={`Convierte dólares a pesos argentinos al tipo de cambio actual de Dólar Blue y Dólar Oficial. Cotización actualizada al ${dayjs().format("DD/MM/YYYY")}`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
