@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Script from "next/script";
-import { RefObject, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import {
   Paper,
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
     }
   };
 
-  (async () => {
+  const fetchApi = async () => {
     try {
       ReactGA.initialize("G-LWTZSX72JH");
       const data = await getCurrenciesValues();
@@ -80,7 +80,13 @@ const Home: NextPage = () => {
     } catch (error) {
       console.log(error);
     }
-  })();
+  };
+
+  useEffect(() => {
+    return () => {
+     fetchApi();
+    };
+  }, []);
 
   return (
     <div className={styles.container}>
