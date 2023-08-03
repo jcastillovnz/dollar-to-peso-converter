@@ -84,8 +84,9 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
+    fetchApi();
     return () => {
-      fetchApi();
+      
     };
   }, []);
 
