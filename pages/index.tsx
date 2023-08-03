@@ -88,11 +88,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269630446749743"
-        crossOrigin="anonymous"
-      />
+
       <Head>
         <title>Conversor dolar a pesos argentinos</title>
 
