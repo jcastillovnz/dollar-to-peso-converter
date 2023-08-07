@@ -92,8 +92,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>
-          Conversor de Dólar a Peso Argentino | Cotización Dólar Blue y Dólar
-          Oficial
+        CONVERSOR DOLAR A PESO ARGENTINO
         </title>
 
         <meta
