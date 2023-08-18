@@ -91,9 +91,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>
-        CONVERSOR DOLAR A PESO ARGENTINO
-        </title>
+        <title>CONVERSOR DOLAR A PESO ARGENTINO</title>
 
         <meta
           name="google-site-verification"
@@ -115,7 +113,7 @@ const Home: NextPage = () => {
       <main className={styles.main} style={{ borderColor: "red" }}>
         <div style={{ marginTop: "3rem" }}>
           <h1 style={{ fontSize: "0.9rem" }}>
-            CONVERSOR DOLAR A PESO ARGENTINO 
+            CONVERSOR DOLAR A PESO ARGENTINO
           </h1>
         </div>
         <div
@@ -277,16 +275,19 @@ const Home: NextPage = () => {
             }}
           >
             <Typography align="center" style={{ fontSize: "0.8rem" }}>
-              <strong>  Ultima actualizacion </strong> correspondiente de los
+              <strong> Ultima actualizacion </strong> correspondiente de los
               precios del <strong>dolar blue</strong> y{" "}
-              <strong>dolar oficial </strong>  <strong>Argentina</strong>{" "} {" "}
-              {lastUpdate ? dayjs(lastUpdate).format("dddd, D [de] MMMM [de] YYYY, H:MM") : ""}{" "}
+              <strong>dolar oficial </strong> <strong>Argentina</strong>{" "}
+              {lastUpdate
+                ? dayjs(lastUpdate).format("dddd, D [de] MMMM [de] YYYY, H:MM")
+                : ""}{" "}
             </Typography>
           </div>
 
           <div style={{ marginTop: "4rem" }}>
             <Typography style={{ fontSize: "0.8rem" }} align="center">
-              By <strong>@jcastillovnz</strong>
+              <strong> conversor dolar a peso</strong> by{" "}
+              <strong>@jcastillovnz</strong>
             </Typography>
           </div>
         </div>
