@@ -1,10 +1,10 @@
 {
-  "name": "my-app",
+  "name": "peso to dollar",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rm -rf .next && next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
